@@ -2,7 +2,7 @@
     .cosmos-id-sign-in-button {
         background-color: #000;
         border: none;
-        padding: 4px 16px 4px 4px;
+        padding: 2px 16px 2px 2px;
         color: #fff;
         font-size: 14px;
         font-weight: 700;
@@ -33,8 +33,8 @@
         align-items: center;
         justify-content: center;
         border-radius: 50%;
-        width: 28px;
-        height: 28px;
+        width: 22px;
+        height: 22px;
     }
 
     .cosmos-id-sign-in-button__label {

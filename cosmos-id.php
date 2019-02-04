@@ -58,7 +58,7 @@ add_action('init', function () {
     //set the content type to application/json
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         'Content-Type:application/json',
-        'Authorization:' . base64_encode(implode(':', [$cosmos_id_client_id, $cosmos_id_client_secret]))
+        'Authorization:Bearer ' . base64_encode(implode(':', [$cosmos_id_client_id, $cosmos_id_client_secret]))
     ));
 
     //return response instead of outputting
