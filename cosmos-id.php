@@ -92,31 +92,6 @@ add_action('init', function () {
     }
 });
 
-// custom start
-
-function h($tag, $props = [], ...$children)
-{
-    $attrs = [];
-
-    foreach ($props as $key => $value) {
-        if ($value == null) continue;
-        $attrs[] = $key . '="' . $value . '"';
-    }
-
-    $attrs = implode(' ', $attrs);
-
-    $children = array_map(function ($child) {
-        if (is_array($child)) {
-            return implode('', $child);
-        }
-        return $child;
-    }, $children);
-
-    $children = implode('', $children);
-
-    return '<' . $tag . ' ' . $attrs . '>' . $children . '</' . $tag . '>';
-}
-
 add_action('login_form', function () {
 
     include 'sign-in-button.php';
