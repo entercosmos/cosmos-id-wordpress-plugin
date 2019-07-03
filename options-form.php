@@ -1,18 +1,18 @@
-<h1>Cosmos ID Options</h1>
+<h1>Pender Account Options</h1>
 <form method="POST">
     <table class="form-table">
         <tbody>
         <tr>
-            <th scope="row"><label for="cosmos_id_client_id">Client ID</label></th>
+            <th scope="row"><label for="pender_account_client_id">Client ID</label></th>
             <td>
-                <input name="cosmos_id_client_id" type="text" id="cosmos_id_client_id" value="<?php echo $client_id; ?>"
+                <input name="pender_account_client_id" type="text" id="pender_account_client_id" value="<?php echo $client_id; ?>"
                        class="regular-text">
             </td>
         </tr>
         <tr>
-            <th scope="row"><label for="cosmos_id_client_secret">Client Secret</label></th>
+            <th scope="row"><label for="pender_account_client_secret">Client Secret</label></th>
             <td>
-                <input name="cosmos_id_client_secret" type="text" id="cosmos_id_client_secret" value="<?php echo $client_secret; ?>"
+                <input name="pender_account_client_secret" type="text" id="pender_account_client_secret" value="<?php echo $client_secret; ?>"
                        class="regular-text">
             </td>
         </tr>

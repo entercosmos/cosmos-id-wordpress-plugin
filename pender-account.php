@@ -1,15 +1,15 @@
 <?php
 /**
- * @package Cosmos ID
+ * @package Pender Account
  */
 /*
-Plugin Name: Cosmos ID
-Plugin URI: https://cosmos-id.surge.sh
-Description: Sign in using just your emailaddress
+Plugin Name: Pender Account
+Plugin URI: https://account.pender.io
+Description: Pender Account | Password-less authentication for your applications.
 Version: 0.1
-Author: Cosmos
-Author URI: https://cosmos-id.surge.sh
-Text Domain: cosmos-id
+Author: Pender
+Author URI: https://account.pender.io
+Text Domain: pender-account
 */
 
 add_action('init', function () {
@@ -23,11 +23,11 @@ add_action('init', function () {
 
     $code = $_GET['code'];
 
-    $cosmos_id_client_id = get_option('cosmos_id_client_id');
-    $cosmos_id_client_secret = get_option('cosmos_id_client_secret');
+    $pender_account_client_id = get_option('pender_account_client_id');
+    $pender_account_client_secret = get_option('pender_account_client_secret');
 
     //API URL
-    $url = 'https://cosmos-id-api.andev.io/api/v0';
+    $url = 'https://api.pender.io/account/v0';
 
     //create a new cURL resource
     $ch = curl_init($url);
@@ -58,7 +58,7 @@ add_action('init', function () {
     //set the content type to application/json
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         'Content-Type:application/json',
-        'Authorization:Bearer ' . base64_encode(implode(':', [$cosmos_id_client_id, $cosmos_id_client_secret]))
+        'Authorization:Bearer ' . base64_encode(implode(':', [$pender_account_client_id, $pender_account_client_secret]))
     ));
 
     //return response instead of outputting
@@ -98,24 +98,24 @@ add_action('login_form', function () {
 });
 
 add_action('admin_menu', function () {
-    add_options_page('Cosmos ID Options', 'Cosmos ID', 'manage_options', 'cosmos-id-options', function () {
+    add_options_page('Pender Account Options', 'Pender Account', 'manage_options', 'pender-account-options', function () {
 
         if (!current_user_can('manage_options')) {
             wp_die('Unauthorized user');
         }
 
-        if (isset($_POST['cosmos_id_client_id'])) {
-            $client_id = $_POST['cosmos_id_client_id'];
-            update_option('cosmos_id_client_id', $client_id);
+        if (isset($_POST['pender_account_client_id'])) {
+            $client_id = $_POST['pender_account_client_id'];
+            update_option('pender_account_client_id', $client_id);
         }
 
-        if (isset($_POST['cosmos_id_client_secret'])) {
-            $client_secret = $_POST['cosmos_id_client_secret'];
-            update_option('cosmos_id_client_secret', $client_secret);
+        if (isset($_POST['pender_account_client_secret'])) {
+            $client_secret = $_POST['pender_account_client_secret'];
+            update_option('pender_account_client_secret', $client_secret);
         }
 
-        $client_id = get_option('cosmos_id_client_id', '');
-        $client_secret = get_option('cosmos_id_client_secret', '');
+        $client_id = get_option('pender_account_client_id', '');
+        $client_secret = get_option('pender_account_client_secret', '');
 
         include_once 'options-form.php';
     });
